@@ -25,3 +25,15 @@ services:
       RAILS_ENV: development
     depends_on:
       - db
+
+  test:
+    build: .
+    volumes:
+      - .:/opt/app
+    ports:
+      - "3000:3000"
+    environment: 
+      <<: *env-vars
+      RAILS_ENV: test
+    depends_on:
+      - db
