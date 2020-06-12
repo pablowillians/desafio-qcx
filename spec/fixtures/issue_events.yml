@@ -1,0 +1,5 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+issue_event:
+  issue_number: 1
+  event_payload: "{payload: {key: value}}"
