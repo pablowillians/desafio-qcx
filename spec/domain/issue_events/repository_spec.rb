@@ -29,10 +29,12 @@ RSpec.describe IssueEvents::Repository, type: :model do
 
         expect(issue_events.count).to eq 1
         expect(IssueEvent.count).to eq 1
+        expect(issue_events.first.issue_number).to eq issue_number
+        expect(issue_events.first.event_payload).to eq nil
       end
     end
 
-    context "with invalid data" do
+    context "with invalid issue_number" do
       before do
         @invalid_attrs = {
           issue_number: Faker::Alphanumeric.alphanumeric,
@@ -40,18 +42,13 @@ RSpec.describe IssueEvents::Repository, type: :model do
         }
       end
 
-      it "does't create an issue_event in database" do
+      it "returns a validation error on issue_number" do
         create_return = IssueEvents::Repository.create(
           @invalid_attrs[:issue_number],
           @invalid_attrs[:event_payload]
         )
 
-        expect(create_return).to be_falsey
-
-        issue_events = IssueEvents::Repository.list_by_issue_number(@invalid_attrs[:issue_number])
-
-        expect(issue_events.count).to eq 0
-        expect(IssueEvent.count).to eq 0
+        expect(create_return).to have(1).error_on(:issue_number)
       end
     end
   end
