@@ -16,3 +16,7 @@ You will need [Docker](https://www.docker.com/) installed to run this project.
 ### Now, we need a github secret token
 
 `docker-compose run --rm web rails github_secret`
+
+Then, copy the token generated and configure your github repository webhook, pointing to `/webhook`
+
+Now it is receiving events from github and storing the payload into database.

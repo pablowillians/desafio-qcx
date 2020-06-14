@@ -1,10 +1,7 @@
 module IssueEvents
   class Repository
     def self.create(issue_number, event_payload)
-      issue_event = IssueEvent.new
-      issue_event.issue_number = issue_number
-      issue_event.event_payload = event_payload
-      issue_event.save
+      IssueEvent.create(issue_number: issue_number, event_payload: event_payload)
     end
 
     def self.list_by_issue_number(issue_number)
