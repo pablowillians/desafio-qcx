@@ -20,3 +20,13 @@ You will need [Docker](https://www.docker.com/) installed to run this project.
 Then, copy the token generated and configure your github repository webhook, pointing to `/webhook`
 
 Now it is receiving events from github and storing the payload into database.
+
+### Creating an user
+
+To create an user, you must to run the following command:
+
+`docker-compose run --rm web rails create_user\[email_address, password]`
+
+For example:
+
+`docker-compose run --rm web rails create_user\[email@example.com, 123456]`
