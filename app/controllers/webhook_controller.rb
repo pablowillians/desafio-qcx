@@ -1,6 +1,4 @@
 class WebhookController < ApplicationController
-  protect_from_forgery except: :index
-
   def index
     request.body.rewind
     payload_body = request.body.read
