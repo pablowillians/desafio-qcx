@@ -17,5 +17,6 @@ module DesafioQcx
     # the framework and any gems in your application.
     config.autoload_paths += %W(#{config.root}/domain)
     config.api_only = true
+    config.navigational_formats = []
   end
 end
