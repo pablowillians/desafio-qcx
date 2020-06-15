@@ -5,6 +5,7 @@ x-env-vars: &env-vars
   POSTGRES_USER: qcx
   POSTGRES_DB: qcx
   DEVISE_JWT_SECRET_KEY: "ed084ad14e5cf6ad60599eac4a2aefe1f3def98677f455e60b344d5f28d3ef2bba4528973ed2e148ac7fdc1a1e5fae9c18cf87e7de2076e05c04bbfba39364f2"
+  SECRET_KEY_BASE: "dc1a1e5fae9c18cf87e7de2076e05c04bbfba39364f2f455e60b344d5f28d3ef2bba4528973ed2e148ac7fed084ad14e5cf6ad60599eac4a2aefe1f3def98677"
 
 services:
   db:

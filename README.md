@@ -25,17 +25,19 @@ Now it is receiving events from github and storing the payload into database.
 
 To create an user, you must to run the following command:
 
-`docker-compose run --rm web rails create_user\[email_address, password]`
+`docker-compose run --rm web rails create_user\[email_address,password]`
 
 For example:
 
-`docker-compose run --rm web rails create_user\[email@example.com, 123456]`
+`docker-compose run --rm web rails create_user\[email@example.com,123456]`
+
+*Pay attention: Don't put blank spaces between email and password arguments*
 
 ### Signing into application
 
 Do a post request for `/users/sign_in` with your credentials. For example:
 
-```curl
+```bash
 curl -X POST -i -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{"user": {"email":"email@example.com","password":"123456"}}' http://localhost:3000/login
 ```
 
@@ -65,7 +67,7 @@ Transfer-Encoding: chunked
 
 Do a get request for `/issues/{issue number}/events`. For example:
 
-```curl
+```bash
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZDBhMjI3NS0wM2Y4LTQxZjItYTdjNC1mNjJjM2M5NjliNGYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1OTIxOTI5MDcsImV4cCI6MTU5MjI3OTMwNywianRpIjoiMzYzMmRhM2QtYzljNC00MWExLThkNDMtZjMwODY2NDI0OGU5In0.utPCqls1vdCiULTlTSRmASoH2YeUAfKh_2xoGXjlL4k' http://localhost:3000/issues/1/events
 ```
 
